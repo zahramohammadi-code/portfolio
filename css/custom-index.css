@@ -1,0 +1,468 @@
+
+
+@font-face {
+    font-family: 'vazir';
+    font-weight: 400;
+    src: url(font/Vazir-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'vazir1';
+    font-weight: 200;
+    src: url(font/Vazir-Thin.ttf);
+}
+
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    direction: rtl;
+}
+
+
+body{
+    font-family: 'vazir',sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    display: flex;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+
+.main{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    padding: 30px;
+    overflow: hidden;
+}
+
+
+/* -------------------------- image -------------------------- */
+
+.image-container{
+    width: 600px;
+    height: 100%;
+    background: url(../img/nicole-wolf2.jpg) top center/cover no-repeat;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 5px 5px 5px rgba(0, 0,0, .2);
+    
+    
+}
+.image-container::before{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 90%;
+    height: 1200px;
+    left: -170px;
+    top: -60px;
+    transform: rotate(-15deg);
+    background-color: #72B626;
+    z-index: -1;
+    
+    
+}
+
+/* -------------------------- main content -------------------------- */
+
+.main-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:75vw;
+    
+}
+.main-info .info{
+    width: 30vw;
+    height: auto;
+    color: #666666;
+}
+@media screen and (max-width:1200px){
+    .image-container{
+        width: 40vw;
+    }
+    .image-container::before{
+        width: 100%;
+        height: 1200px;
+        left: -100px;
+        top: -60px;
+    }
+    .main-info{
+        padding-right: 80px;
+        width:84vw;
+    }
+    .main-info .info{
+        width: 43vw;
+    }
+}
+.main-info .info h3{
+    font-weight: 200;
+    font-size: 1.5em;
+   
+}
+.main-info .info h1 {
+    margin: 20px 0;
+    font-size: 2.3em;
+    
+}
+.main-info .info span{
+    color:#72B626 ;
+}
+.main-info .info p{
+    font-family: 'vazir1';
+    font-weight: 100;
+    font-size: 1.1em;
+    line-height: 30px;
+}
+.link{
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    width: 250px;
+    height: 50px;
+    background-color: #72B626;
+    margin-top: 30px;
+    border-radius: 50px;
+    transition: all .4s;
+    
+    position: relative;
+    z-index: 8;
+}
+.link span i{
+    color: #fff;
+    margin-right: 3px;
+    display: none;
+    font-size: 15px;
+
+}
+.link:hover{
+    color: #fff;
+}
+.link:hover span i{
+    display: inline-block;
+    animation: user .4s forwards;
+    
+}
+@keyframes user{
+    from{
+        margin-right: 3px;
+    }
+    to{
+        margin-right: 18px;
+    }
+}
+
+/* -------------------------- sidebar menu -------------------------- */
+
+.sidebar{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 200px;
+    height: 96vh;
+    position: fixed;
+    z-index: 999999;
+}
+
+.icon-menu{
+    width: 100%;
+    list-style-type: none;
+    text-align: center;
+}
+.icon-menu .icon-box{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #666;
+    font-size: 20px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+.icon-menu .icon-box a{
+    display: flex;
+    color: #fff;
+    width: 140px;
+    height: 50px;
+    text-decoration: none;
+    background-color:  #72B626;
+    font-size: 19px;
+    font-weight: 100;
+    margin-right: -45px;
+    border-radius: 50px;
+    transition: all .3s;
+    opacity: 0;
+}
+.icon-menu .icon-box i{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 25px;
+    background-color:  #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.icon-menu .icon-box a h5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 30px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+}
+.icon-menu .icon-box i:hover+a,
+.icon-menu .icon-box:hover a
+{
+    width: 170px;
+    opacity: 1;
+}
+.icon-menu .icon-box:hover i{
+    background-color: #72B626 ;
+    color: #fff;
+    z-index: 99;
+}
+.icon-menu .icon-box .active{
+    background-color: #72B626 ;
+    color: #fff;
+}
+
+/* --------------------------  menu in mobile -------------------------- */
+
+nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+.navigation{
+    width: 100%;
+    height: 100vh;
+}
+
+.navigation #menu-icon{
+    width: 45px;
+    height: 45px;
+    background-color:#f3f3f3;
+    appearance: none;
+    position: fixed;
+    outline: 0;
+    top: 30px;
+    right: 30px;
+    border-radius: 5px;
+    z-index: 9;
+    cursor: pointer;
+}
+.navigation #menu-icon:checked ~ .line2 {
+   opacity: 0;
+}
+.navigation #menu-icon:checked ~ .line1 {
+    transform: rotate(45deg) translate(6px,5px);
+}
+.navigation #menu-icon:checked ~ .line3 {
+    transform: rotate(-45deg) translate(6px,-5px);
+}
+
+.navigation > span{
+    width: 25px;
+    height: 2px;
+    background-color: #7a7a7a;
+    border-radius: 25px;
+    position: fixed;
+    transition: all .5s;
+    z-index: 99;
+    cursor: pointer;
+    
+}
+.navigation .line1{
+    top: 45px;
+    right: 40px;
+}
+.navigation .line2{
+    top: 52.5px;
+    right: 40px;
+}
+.navigation .line3{
+    top: 60px;
+    right: 40px;
+}
+
+.navigation .menu{
+    width: 100%;
+    height:100vh;
+    background-color: #f3f3f3;
+    padding:100px 30px 30px;
+    transform: translate(-100%);
+
+}
+.navigation .menu .icon{
+    height: 70px;
+    font-size: 1.2em;
+    line-height: 70px;
+}
+.activemenu{
+    color: #72B626;
+}
+.activemenu:hover{
+    color: #72B626;
+}
+
+@keyframes slide{
+    from{
+        transform: translate(-100%);
+    }
+    to{
+        transform: translate(0);
+    }
+}
+@keyframes slideback{
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(-100%);
+    }
+}
+
+
+/* --------------------------- loader ----------------------------- */
+.preloader{
+    position:fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: #fff;
+    transform-origin:top;
+    z-index:9999999
+}
+
+.preloader .load{
+    height:100%;
+     background-color:#eee;
+    transform-origin: bottom;
+    animation:preloader_slide 0.5s ease-out 0s 1 normal both;
+
+}
+
+.preloader .loader{
+    width:100%;
+    height:3px;
+    position:absolute;
+    border-radius:2px;
+    top:0;
+    right:0;
+    left:0;
+    margin:auto;
+    background-color:#72B626;
+    transform-origin:left;
+    animation:loader_running 3s ease-in-out 1s infinite normal both
+}
+
+.preloader.off{
+    animation:preloader_slide 0.5s ease-out 1 reverse both
+}
+
+
+@keyframes loader_running{
+    0%{
+        transform:scaleX(0);
+        transform-origin:left
+    }
+    49%{
+        transform:scaleX(1);
+        transform-origin:left
+    }
+    50%{
+        transform:scaleX(1);
+        transform-origin:right
+    }
+    100%{
+        transform-origin:right;
+        transform:scaleX(0)
+    }
+}
+
+    
+@keyframes preloader_slide{
+    from{transform:scaleY(0)}
+    to{transform:scaleY(1)}
+}
+
+
+/* ====================================== mediaquery ========================================= */
+
+@media screen and (max-width: 992px) {
+    .sidebar{
+        display: none;
+    }
+    .main{
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .image-container{
+        display: flex;
+        order: 1;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+    }
+    .image-container::before{
+        display: none;
+    }
+    .main-info{
+        order: 2;
+        padding-right: 0;
+    }
+    .main-info .info{
+        width: 90%;
+        text-align: center;
+    }
+    .link{
+        margin: 20px auto 0;
+        width: 200px;
+        font-size: 1em;
+    }
+    .main-info .info h1 {
+        font-size: 2em;
+    }
+    .main-info .info p{
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .image-container{
+        width: 180px;
+        height: 180px;
+    }
+    .navigation .menu .icon{
+        height: 50px;
+        font-size: 1em;
+        line-height: 50px;
+    }
+    .link{
+        width: 180px;
+        height: 40px;
+        margin: 0 auto;
+        font-size: .9em;
+    }
+    .main-info .info h1 {
+        font-size: 1.5em;
+    }
+    .main-info .info p{
+        font-size: .75em;
+    }
+}
+

@@ -1,0 +1,146 @@
+*,::after,::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.heading{
+    background-color: #8f88cfa2;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 40px;
+}
+
+
+#add{
+    padding: 10px 20px;
+    margin: 40px;
+    height: 40px;
+    float: right;
+    background-image: linear-gradient(to right,#9796f0,#fdc4d2);
+    color: cornsilk;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    
+}
+section{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+    height: auto;
+    
+}
+label{
+
+    font-size: 20px;
+    display: block;
+    margin: 10px 5px 20px;
+}
+.inputtxt{
+    margin-bottom: 40px;
+    width: 300px;
+    height: auto;
+    font-size: 20px;
+    outline: none;
+    border: none; 
+    resize: none;
+    border-bottom: 2px solid rebeccapurple;
+    border-left: 2px solid rebeccapurple;
+
+}
+.note-container{
+    min-width: 70%;
+    height: auto;
+    margin: 30px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.note-container>div{
+    min-width:100px ;
+    min-height: 50px;
+    height: auto;
+    margin: 5px;
+}
+
+.note-container>div>div{
+    min-width: 170px;
+    min-height: 50px;
+    max-width: 350px;
+    padding: 5px;
+    height: 110px;
+    margin: 5px;
+    
+    background-color: rgba(250, 221, 216, 0.432);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
+}
+.note-container>div :first-child{
+    height: 50px;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+
+.del{
+    color: #e91414;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+
+.label{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+    outline: 0;
+    cursor: pointer;
+    margin: 5px 0 0 0;
+}
+
+.label::before{
+    content: '';
+    position: absolute;
+    width: 3.5px;
+    height: 35px;
+    background-color: #72B626;
+    transform: rotate(30deg);
+    border-radius: 30px;
+    left: 13px;
+    top: -19px;
+    opacity: 0;
+}
+.label::after{
+    content: '';
+    position: absolute;
+    width: 3.5px;
+    height: 19px;
+    background-color: #72B626;
+    border-radius: 5px;
+    transform: rotate(-30deg);
+    left: 1px;
+    top: -4px;
+    opacity: 0;
+}
+
+input[ type=checkbox]{
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    
+}
+
+
+input[type=checkbox]:checked+.label::before,
+input[type=checkbox]:checked+.label::after{
+ opacity: 1;
+}
